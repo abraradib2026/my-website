@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — abrar.</title>
+  <meta name="description" content="About Abrar — designer and developer.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .nav { backdrop-filter: blur(12px); }
+  </style>
+</head>
+<body class="bg-[#0B132B] text-[#FFFFFF] selection:bg-[#5C7A9E] selection:text-[#0B132B]">
+  <!-- Navbar -->
+  <nav class="sticky top-0 z-50 bg-[#0B132B]/90 border-b border-white/10 nav">
+    <div class="max-w-6xl mx-auto px-6 flex items-center justify-between h-16">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-full bg-[#3A506B] flex items-center justify-center">
+          <span class="text-[#FFFFFF] font-bold text-xl tracking-tighter">a</span>
+        </div>
+        <a href="index.html" class="font-semibold tracking-tight text-xl">abrar</a>
+      </div>
+
+      <div class="hidden md:flex items-center gap-9 text-sm">
+        <a href="index.html" class="nav-link text-white/70 hover:text-white transition-colors">home</a>
+        <a href="about.html" class="nav-link text-white/90">about</a>
+        <a href="portfolio.html" class="nav-link text-white/70 hover:text-white transition-colors">work</a>
+        <a href="store.html" class="nav-link text-white/70 hover:text-white transition-colors">store</a>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="store.html" class="hidden md:flex items-center gap-2 px-4 py-2 text-sm rounded-full border border-white/15 hover:bg-white/5 transition-colors">
+          visit store
+        </a>
+        <button id="menu-btn" class="md:hidden p-2" aria-label="Menu">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden border-t border-white/10 bg-[#0B132B]">
+      <div class="px-6 py-6 flex flex-col gap-4 text-sm">
+        <a href="index.html" class="nav-link">home</a>
+        <a href="about.html" class="nav-link">about</a>
+        <a href="portfolio.html" class="nav-link">work</a>
+        <a href="store.html" class="nav-link">store</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <div class="max-w-4xl mx-auto px-6 pt-16 pb-12">
+    <div class="uppercase tracking-[3px] text-xs text-[#3A506B] mb-3">CHAPTER 01</div>
+    <h1 class="text-6xl font-semibold tracking-tighter">About me</h1>
+    <p class="mt-4 text-xl text-white/60 max-w-lg">Designer, developer, and obsessive craftsperson.</p>
+  </div>
+
+  <!-- Main content -->
+  <div class="max-w-4xl mx-auto px-6 pb-20 space-y-16">
+    <div class="prose prose-invert max-w-none text-lg text-white/80 leading-relaxed">
+      <p>I’m Abrar — a designer who codes and a developer who designs. I specialize in building premium, motion-rich digital experiences that feel intentional and alive.</p>
+      
+      <p class="mt-6">My work lives at the intersection of interface design, animation systems, and real engineering. I’ve shipped everything from cinematic web experiences and 3D product tools to design systems and interactive storytelling pieces.</p>
+    </div>
+
+    <div>
+      <div class="uppercase tracking-[3px] text-xs text-[#3A506B] mb-4">WHAT I CARE ABOUT</div>
+      <div class="grid md:grid-cols-2 gap-x-10 gap-y-8 text-white/80">
+        <div>
+          <div class="font-semibold text-white mb-1">Motion as meaning</div>
+          <div class="text-sm">Animation isn’t decoration — it’s how you guide attention, create emotion, and make interfaces feel human.</div>
+        </div>
+        <div>
+          <div class="font-semibold text-white mb-1">Craft at every scale</div>
+          <div class="text-sm">From a single hover state to an entire product system, the details are where trust is built.</div>
+        </div>
+        <div>
+          <div class="font-semibold text-white mb-1">Performance as respect</div>
+          <div class="text-sm">Beautiful work that feels slow is a betrayal. I obsess over speed, load times, and perceived performance.</div>
+        </div>
+        <div>
+          <div class="font-semibold text-white mb-1">Clarity over novelty</div>
+          <div class="text-sm">New technology is only useful when it serves the person on the other side of the screen.</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="uppercase tracking-[3px] text-xs text-[#3A506B] mb-4">CURRENTLY WORKING WITH</div>
+      <div class="flex flex-wrap gap-2">
+        <div class="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-sm">Three.js + WebGL</div>
+        <div class="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-sm">GSAP + Lenis + ScrollTrigger</div>
+        <div class="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-sm">Next.js / React</div>
+        <div class="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-sm">Theatre.js</div>
+        <div class="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-sm">Figma + Design Systems</div>
+        <div class="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-sm">Tailwind + Custom Shaders</div>
+      </div>
+    </div>
+
+    <div class="pt-8 border-t border-white/10">
+      <a href="mailto:hello@abrar.dev" class="btn btn-primary inline-flex px-8 h-12 items-center rounded-full text-base">
+        Let’s talk
+      </a>
+      <div class="mt-3 text-sm text-white/50">Or reach out on <a href="#" class="hover:text-[#5C7A9E]">X</a> or <a href="https://github.com/abraradib2026" class="hover:text-[#5C7A9E]">GitHub</a>.</div>
+    </div>
+  </div>
+
+  <footer class="border-t border-white/10 py-8">
+    <div class="max-w-6xl mx-auto px-6 text-xs text-white/40 flex flex-col md:flex-row gap-2 md:items-center md:justify-between">
+      <div>© <span id="year"></span> Abrar. Built manually with care.</div>
+      <a href="index.html" class="hover:text-[#5C7A9E]">← Back to home</a>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

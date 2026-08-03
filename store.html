@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Store — abrar.</title>
+  <meta name="description" content="Digital products and tools by Abrar.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .nav { backdrop-filter: blur(12px); }
+    .store-card {
+      transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .store-card:hover {
+      transform: translateY(-3px);
+    }
+  </style>
+</head>
+<body class="bg-[#0B132B] text-[#FFFFFF] selection:bg-[#5C7A9E] selection:text-[#0B132B]">
+  <!-- Navbar -->
+  <nav class="sticky top-0 z-50 bg-[#0B132B]/90 border-b border-white/10 nav">
+    <div class="max-w-6xl mx-auto px-6 flex items-center justify-between h-16">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-full bg-[#3A506B] flex items-center justify-center">
+          <span class="text-[#FFFFFF] font-bold text-xl tracking-tighter">a</span>
+        </div>
+        <a href="index.html" class="font-semibold tracking-tight text-xl">abrar</a>
+      </div>
+
+      <div class="hidden md:flex items-center gap-9 text-sm">
+        <a href="index.html" class="nav-link text-white/70 hover:text-white transition-colors">home</a>
+        <a href="about.html" class="nav-link text-white/70 hover:text-white transition-colors">about</a>
+        <a href="portfolio.html" class="nav-link text-white/70 hover:text-white transition-colors">work</a>
+        <a href="store.html" class="nav-link text-white/90">store</a>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <button id="cart-btn"
+                class="flex items-center gap-2 px-4 py-2 text-sm rounded-full border border-white/15 hover:bg-white/5 transition-colors">
+          <span>cart</span>
+          <span id="cart-count" class="font-mono text-[#5C7A9E]">0</span>
+        </button>
+        <button id="menu-btn" class="md:hidden p-2" aria-label="Menu">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden border-t border-white/10 bg-[#0B132B]">
+      <div class="px-6 py-6 flex flex-col gap-4 text-sm">
+        <a href="index.html" class="nav-link">home</a>
+        <a href="about.html" class="nav-link">about</a>
+        <a href="portfolio.html" class="nav-link">work</a>
+        <a href="store.html" class="nav-link">store</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="max-w-6xl mx-auto px-6 pt-16 pb-10">
+    <div class="uppercase tracking-[3px] text-xs text-[#3A506B] mb-3">CHAPTER 03</div>
+    <h1 class="text-6xl font-semibold tracking-tighter">Store</h1>
+    <p class="mt-2 text-lg text-white/60">Digital products and tools I actually use and recommend.</p>
+  </div>
+
+  <!-- Products -->
+  <div class="max-w-6xl mx-auto px-6 pb-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="products">
+    <!-- Populated by JS -->
+  </div>
+
+  <!-- Cart Sidebar -->
+  <div id="cart-sidebar" class="hidden fixed top-0 right-0 h-full w-full max-w-sm bg-[#0B132B] border-l border-white/10 z-[60] flex flex-col">
+    <div class="p-6 flex items-center justify-between border-b border-white/10">
+      <div class="font-semibold">Your cart</div>
+      <button id="close-cart" class="text-white/60 hover:text-white">Close</button>
+    </div>
+    
+    <div class="flex-1 overflow-auto p-6" id="cart-items">
+      <!-- JS injected -->
+    </div>
+
+    <div class="p-6 border-t border-white/10">
+      <div class="flex justify-between text-sm mb-4">
+        <span class="text-white/60">Total</span>
+        <span id="cart-total" class="font-mono">$0</span>
+      </div>
+      <button onclick="checkout()" 
+              class="w-full btn btn-primary h-11 rounded-full text-sm">Checkout (demo)</button>
+      <p class="text-center text-[10px] text-white/40 mt-3">This is a demo. No real payments.</p>
+    </div>
+  </div>
+
+  <footer class="border-t border-white/10 py-8">
+    <div class="max-w-6xl mx-auto px-6 text-xs text-white/40 flex flex-col md:flex-row gap-2 md:items-center md:justify-between">
+      <div>© <span id="year"></span> Abrar. Built manually with care.</div>
+      <a href="index.html" class="hover:text-[#5C7A9E]">← Back to home</a>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Store data
+    const products = [
+      {
+        id: 1,
+        category: "DIGITAL",
+        name: "Cinematic Motion Kit",
+        price: 29,
+        desc: "30+ GSAP + Lenis presets, custom easing curves, and production-ready timelines."
+      },
+      {
+        id: 2,
+        category: "TEMPLATE",
+        name: "Premium Landing Template",
+        price: 19,
+        desc: "The exact structure, motion system and components used in this site."
+      },
+      {
+        id: 3,
+        category: "ASSET PACK",
+        name: "Glass UI Components",
+        price: 15,
+        desc: "Figma + code for beautiful frosted glass panels, buttons, and modals."
+      },
+      {
+        id: 4,
+        category: "CALL",
+        name: "1:1 Creative Review",
+        price: 120,
+        desc: "45-minute session. Portfolio feedback, motion direction, or code architecture."
+      },
+      {
+        id: 5,
+        category: "DIGITAL",
+        name: "Shader Studies Pack",
+        price: 24,
+        desc: "10 beautiful GLSL examples with comments and Three.js integration."
+      },
+      {
+        id: 6,
+        category: "TEMPLATE",
+        name: "Portfolio Boilerplate",
+        price: 35,
+        desc: "Clean, fast, multipage portfolio starter with the Stormy Waters theme."
+      }
+    ];
+
+    let cart = [];
+
+    function renderProducts() {
+      const container = document.getElementById('products');
+      container.innerHTML = '';
+
+      products.forEach(p => {
+        const el = document.createElement('div');
+        el.className = `store-card border border-white/10 bg-[#16233A] rounded-2xl p-6 flex flex-col`;
+        el.innerHTML = `
+          <div class="text-xs text-[#3A506B] mb-1">${p.category}</div>
+          <h4 class="font-semibold text-xl tracking-tight">${p.name}</h4>
+          <p class="text-sm text-white/60 mt-2 flex-1">${p.desc}</p>
+          <div class="mt-6 flex items-center justify-between">
+            <div class="font-mono">$${p.price}</div>
+            <button class="add-btn px-5 h-9 rounded-full text-sm border border-[#5C7A9E] text-[#5C7A9E] hover:bg-[#5C7A9E] hover:text-[#0B132B]">
+              Add to cart
+            </button>
+          </div>
+        `;
+        el.querySelector('.add-btn').addEventListener('click', () => addToCart(p));
+        container.appendChild(el);
+      });
+    }
+
+    function addToCart(product) {
+      cart.push(product);
+      updateCartCount();
+      // visual feedback
+      const btns = document.querySelectorAll('.add-btn');
+      // simple toast
+      const toast = document.createElement('div');
+      toast.className = 'fixed bottom-6 left-1/2 -translate-x-1/2 bg-[#16233A] border border-white/10 px-6 py-2 rounded-full text-sm';
+      toast.textContent = `${product.name} added to cart`;
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 1400);
+    }
+
+    function updateCartCount() {
+      document.getElementById('cart-count').textContent = cart.length;
+    }
+
+    function showCart() {
+      const sidebar = document.getElementById('cart-sidebar');
+      const itemsEl = document.getElementById('cart-items');
+      sidebar.classList.remove('hidden');
+      sidebar.classList.add('flex');
+
+      itemsEl.innerHTML = '';
+
+      if (cart.length === 0) {
+        itemsEl.innerHTML = `<div class="text-white/50 text-sm">Your cart is empty.</div>`;
+        document.getElementById('cart-total').textContent = '$0';
+        return;
+      }
+
+      let total = 0;
+      cart.forEach((item, index) => {
+        total += item.price;
+        const row = document.createElement('div');
+        row.className = 'flex justify-between items-start py-3 border-b border-white/10 last:border-none';
+        row.innerHTML = `
+          <div>
+            <div class="text-sm">${item.name}</div>
+            <div class="text-xs text-white/50">${item.category}</div>
+          </div>
+          <div class="text-right">
+            <div class="font-mono">$${item.price}</div>
+            <button class="text-xs text-red-400 hover:text-red-500 mt-1">remove</button>
+          </div>
+        `;
+        row.querySelector('button').addEventListener('click', () => {
+          cart.splice(index, 1);
+          showCart();
+          updateCartCount();
+        });
+        itemsEl.appendChild(row);
+      });
+      document.getElementById('cart-total').textContent = '$' + total;
+    }
+
+    function checkout() {
+      if (cart.length === 0) return;
+      alert(`Thank you! This is a demo.\n\nYou would have been charged $${cart.reduce((s, i) => s + i.price, 0)}.\n\nIn a real store this would open Stripe / checkout.`);
+      cart = [];
+      updateCartCount();
+      document.getElementById('cart-sidebar').classList.add('hidden');
+      document.getElementById('cart-sidebar').classList.remove('flex');
+    }
+
+    // Init
+    function initStorePage() {
+      renderProducts();
+      updateCartCount();
+
+      document.getElementById('cart-btn').addEventListener('click', showCart);
+      document.getElementById('close-cart').addEventListener('click', () => {
+        const s = document.getElementById('cart-sidebar');
+        s.classList.add('hidden');
+        s.classList.remove('flex');
+      });
+
+      // Mobile cart support
+      const mobileBtn = document.createElement('button');
+      // (we already have cart button visible)
+    }
+
+    initStorePage();
+  </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+/* Custom styles + overrides for the landing page */
+
+:root {
+  --bg: #0B0B0E;
+  --fg: #E8E8E8;
+  --accent: #00F0FF;
+  --card: #121215;
+  --muted: #888;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Hero typing effect */
+#typed {
+  border-right: 3px solid var(--accent);
+  white-space: nowrap;
+  overflow: hidden;
+  animation: blink 0.7s step-end infinite;
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+/* Glassmorphism-ish cards */
+.card {
+  background: var(--card);
+  transition: transform 0.2s cubic-bezier(0.23, 1.0, 0.32, 1), 
+              box-shadow 0.2s cubic-bezier(0.23, 1.0, 0.32, 1);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 
+              0 8px 10px -6px rgb(0 0 0 / 0.1);
+  border-color: rgba(0, 240, 255, 0.2);
+}
+
+/* Accent elements */
+.accent {
+  color: var(--accent);
+}
+
+.btn {
+  transition: all 0.15s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #0B0B0E;
+  font-weight: 600;
+}
+
+.btn-primary:hover {
+  background: #00d4e6;
+}
+
+.section {
+  scroll-margin-top: 80px;
+}
+
+/* Simple nav active state */
+.nav-link {
+  position: relative;
+}
+.nav-link:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background: var(--accent);
+  transition: width 0.2s ease;
+}
+.nav-link:hover:after,
+.nav-link.active:after {
+  width: 100%;
+}
+
+/* Store item */
+.store-item {
+  transition: all 0.2s ease;
+}
+.store-item:hover {
+  transform: scale(1.02);
+}
+
+/* Cart */
+#cart-count {
+  font-variant-numeric: tabular-nums;
+}

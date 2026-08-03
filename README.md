@@ -1,6 +1,11 @@
 # my-website
 
-Modern animated landing page for Abrar.
+Multipage site for Abrar.
+
+- `index.html` — Dynamic landing page (short intro + navigation options)
+- `about.html` — About me
+- `portfolio.html` — Selected work
+- `store.html` — Digital store with working cart
 
 ## Local development
 Just open `index.html` in a browser, or use a simple server:

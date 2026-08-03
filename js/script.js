@@ -7,9 +7,9 @@ function initTailwind() {
       theme: {
         extend: {
           colors: {
-            charcoal: '#0B0B0E',
-            platinum: '#E8E8E8',
-            cyan: '#00F0FF'
+            navy: '#0B132B',
+            slate: '#3A506B',
+            accent: '#5C7A9E'
           }
         }
       }

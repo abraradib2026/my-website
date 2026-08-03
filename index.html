@@ -3,19 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>abrar. — modern digital experiences</title>
-  <meta name="description" content="Abrar — crafting animated, interactive web experiences.">
+  <title>abrar.</title>
+  <meta name="description" content="Abrar">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="css/style.css">
   <style>
     .nav { backdrop-filter: blur(12px); }
-    .explore-card {
-      transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
-    }
-    .explore-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(92, 122, 158, 0.4);
-    }
   </style>
 </head>
 <body class="bg-[#0B132B] text-[#FFFFFF] selection:bg-[#5C7A9E] selection:text-[#0B132B]">
@@ -29,9 +22,8 @@
         <a href="index.html" class="font-semibold tracking-tight text-xl">abrar</a>
       </div>
 
-      <!-- Desktop nav -->
+      <!-- Desktop nav - pure navigation, no scroll anchors -->
       <div class="hidden md:flex items-center gap-9 text-sm">
-        <a href="index.html" class="nav-link text-white/90">home</a>
         <a href="about.html" class="nav-link text-white/70 hover:text-white transition-colors">about</a>
         <a href="portfolio.html" class="nav-link text-white/70 hover:text-white transition-colors">work</a>
         <a href="store.html" class="nav-link text-white/70 hover:text-white transition-colors">store</a>
@@ -40,10 +32,9 @@
       <div class="flex items-center gap-3">
         <a href="store.html" 
            class="hidden md:flex items-center gap-2 px-4 py-2 text-sm rounded-full border border-white/15 hover:bg-white/5 transition-colors">
-          <span>visit store</span>
+          store
         </a>
 
-        <!-- Mobile menu button -->
         <button id="menu-btn" class="md:hidden p-2" aria-label="Menu">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -55,7 +46,6 @@
     <!-- Mobile menu -->
     <div id="mobile-menu" class="hidden md:hidden border-t border-white/10 bg-[#0B132B]">
       <div class="px-6 py-6 flex flex-col gap-4 text-sm">
-        <a href="index.html" class="nav-link">home</a>
         <a href="about.html" class="nav-link">about</a>
         <a href="portfolio.html" class="nav-link">work</a>
         <a href="store.html" class="nav-link">store</a>
@@ -63,85 +53,23 @@
     </div>
   </nav>
 
-  <!-- Hero / Landing -->
-  <header class="max-w-4xl mx-auto px-6 pt-20 pb-16 text-center relative">
-    <!-- Stormy Waters soft glow -->
-    <div class="absolute left-1/2 top-8 -translate-x-1/2 w-[480px] h-[480px] rounded-full bg-[#A8C5E2] opacity-[0.06] blur-[110px] pointer-events-none -z-10"></div>
+  <!-- Very minimal landing hero -->
+  <header class="max-w-3xl mx-auto px-6 pt-24 pb-20 text-center relative">
+    <!-- subtle glow -->
+    <div class="absolute left-1/2 top-10 -translate-x-1/2 w-[420px] h-[420px] rounded-full bg-[#A8C5E2] opacity-[0.05] blur-[100px] pointer-events-none -z-10"></div>
 
-    <div class="inline-block px-3 py-1 rounded-full bg-white/5 text-xs tracking-[2px] mb-6 border border-white/10 text-white/60">CURRENTLY AVAILABLE FOR SELECT PROJECTS</div>
-
-    <h1 class="text-6xl md:text-7xl font-semibold tracking-tighter leading-none mb-6">
-      Hi, I’m <span class="accent">Abrar</span>.<br>
-      I build things that move.
+    <h1 class="text-7xl md:text-7xl font-semibold tracking-tighter leading-none mb-8">
+      Abrar
     </h1>
 
-    <p class="max-w-md mx-auto text-xl text-white/60 mb-10">
-      <span id="typed"></span>
+    <p class="max-w-sm mx-auto text-xl text-white/60">
+      I design and build digital experiences that move.
     </p>
-
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a href="portfolio.html" 
-         class="btn btn-primary inline-flex items-center justify-center px-8 h-12 rounded-full text-base">
-        See my work
-      </a>
-      <a href="about.html" 
-         class="btn inline-flex items-center justify-center px-8 h-12 rounded-full border border-white/20 hover:bg-white/5 text-base">
-        About me
-      </a>
-    </div>
-
-    <div class="mt-20 text-[10px] tracking-[3px] text-white/30">SCROLL TO EXPLORE</div>
   </header>
 
-  <!-- Explore options -->
-  <section class="max-w-6xl mx-auto px-6 pb-24">
-    <div class="uppercase tracking-[3px] text-xs text-[#3A506B] mb-4 text-center">WHERE NEXT?</div>
-    <h2 class="text-center text-4xl font-semibold tracking-tight mb-10">Choose your path</h2>
-
-    <div class="grid md:grid-cols-3 gap-6">
-      <!-- About -->
-      <a href="about.html" class="explore-card group block rounded-2xl border border-white/10 bg-[#16233A] p-8">
-        <div class="text-[#3A506B] text-xs tracking-[2px] mb-4">01 — THE STORY</div>
-        <h3 class="text-3xl font-semibold tracking-tight mb-4 group-hover:text-[#5C7A9E] transition-colors">About me</h3>
-        <p class="text-white/60 leading-relaxed mb-8">My background, process, and what I care about most.</p>
-        <span class="inline-flex items-center text-sm text-[#5C7A9E]">
-          Enter about 
-          <span class="ml-2 group-hover:translate-x-0.5 transition">→</span>
-        </span>
-      </a>
-
-      <!-- Work / Portfolio -->
-      <a href="portfolio.html" class="explore-card group block rounded-2xl border border-white/10 bg-[#16233A] p-8">
-        <div class="text-[#3A506B] text-xs tracking-[2px] mb-4">02 — THE WORK</div>
-        <h3 class="text-3xl font-semibold tracking-tight mb-4 group-hover:text-[#5C7A9E] transition-colors">Portfolio</h3>
-        <p class="text-white/60 leading-relaxed mb-8">Selected projects, experiments, and interactive pieces.</p>
-        <span class="inline-flex items-center text-sm text-[#5C7A9E]">
-          Browse work 
-          <span class="ml-2 group-hover:translate-x-0.5 transition">→</span>
-        </span>
-      </a>
-
-      <!-- Store -->
-      <a href="store.html" class="explore-card group block rounded-2xl border border-white/10 bg-[#16233A] p-8">
-        <div class="text-[#3A506B] text-xs tracking-[2px] mb-4">03 — THE SHOP</div>
-        <h3 class="text-3xl font-semibold tracking-tight mb-4 group-hover:text-[#5C7A9E] transition-colors">Store</h3>
-        <p class="text-white/60 leading-relaxed mb-8">Digital tools, motion kits, templates and creative resources.</p>
-        <span class="inline-flex items-center text-sm text-[#5C7A9E]">
-          Visit store 
-          <span class="ml-2 group-hover:translate-x-0.5 transition">→</span>
-        </span>
-      </a>
-    </div>
-  </section>
-
-  <footer class="border-t border-white/10 py-8">
-    <div class="max-w-6xl mx-auto px-6 text-xs text-white/40 flex flex-col md:flex-row gap-2 md:items-center md:justify-between">
-      <div>© <span id="year"></span> Abrar. Built manually with care.</div>
-      <div class="flex gap-4">
-        <span>GitHub Pages</span>
-        <span>•</span>
-        <a href="https://github.com/abraradib2026/my-website" class="hover:text-[#5C7A9E]">Source on GitHub</a>
-      </div>
+  <footer class="border-t border-white/10 py-8 text-center">
+    <div class="text-xs text-white/40">
+      © <span id="year"></span>
     </div>
   </footer>
 
